@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Animated button</title>
+    </head>
+    <body>
+        <main>
+            <div class="button">
+                <span class="confirm">Confirm booking</span>
+                <span class="plane">&#9992;</span>
+            </div>
+        </main>
+        <script>
+            var button = document.querySelector(".button");
+            button.addEventListener("click", function() {
+                this.classList.add("animate");
+                setTimeout(function() {
+                    button.classList.remove("animate");
+                }, 5000);
+            });
+        </script>
+    </body>
+</html>
