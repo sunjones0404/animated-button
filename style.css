@@ -23,12 +23,51 @@ main {
     align-items: center;
     justify-content: center;
     border-radius: 35px;
-    background: darkslategray;
+    background: skyblue;
     cursor: pointer;
     width: 250px;
     height: 70px;
     color: white;
     overflow: hidden;
+}
+
+.runway {
+    position: absolute;
+    left: 0;
+    width: 500px;
+    height: 70px;
+    background: darkslategrey;
+    will-change: transform;
+}
+
+.runway-lines {
+    transform: translateX(100%);
+    border:none;
+    border-top: 2px dashed white;
+    background-color: darkslategrey;
+    width: 250px;
+    will-change: transform;
+    z-index: 1;
+}
+
+.runway-line-top {
+    position: absolute;
+    left: 0;
+    border:none;
+    border-top: 2px solid gold;
+    width: 250px;
+    will-change: transform;
+    z-index: 2;
+}
+
+.runway-line-bottom {
+    position: absolute;
+    left: 0;
+    border: none;
+    border-top: 2px solid gold;
+    width: 250px;
+    will-change: transform;
+    z-index: 2;
 }
 
 .confirm {
@@ -45,49 +84,38 @@ main {
     position: absolute;
     right: 100%;
     font-size: 75px;
-    color: darkslategray;
+    /* color: #ee3123; */
+    color: white;
     will-change: transform;
 }
 
-.speedline-1 {
-    position: absolute;
-    background-color: white;
-    top: 20px;
-    left: 100%;
-    width: 60px;
-    height: 2px;
-    border-radius: 1px;
-}
-
 /* Trigger animation */
-
-.button.animate {
-    animation: button 0.3s linear forwards;
-}
 
 .animate .confirm {
     animation: confirm 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
 .animate .plane {
-    animation: flyover 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s forwards;
+    animation: flyover 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.5s forwards;
 }
 
-.animate .speedline-1 {
-    animation: speedline 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s
-        forwards;
+.animate .runway {
+    animation: runway 1.5s linear .3s forwards;
+}
+
+.animate .runway-lines {
+    animation: runway-lines 1.5s linear .3s forwards;
+}
+
+.animate .runway-line-top {
+    animation: runway-lines 1.5s linear .3s forwards;
+}
+
+.animate .runway-line-bottom {
+    animation: runway-lines 1.5s linear .3s forwards;
 }
 
 /* Animations */
-
-@keyframes button {
-    0% {
-        background-color: darkslategray;
-    }
-    100% {
-        background-color: skyblue;
-    }
-}
 
 @keyframes confirm {
     0% {
@@ -105,25 +133,28 @@ main {
     30% {
         transform: translateX(180px);
     }
-    70% {
-        transform: translateX(100px);
+    75% {
+        transform: translateX(120px);
     }
     100% {
         transform: translateX(350px);
     }
 }
 
-@keyframes speedline {
+@keyframes runway {
     0% {
-        transform: translateX(0);
-    }
-    30% {
-        transform: translateX(-130px);
-    }
-    70% {
-        transform: translateX(-190px);
+        transform: translateX(0); 
     }
     100% {
-        transform: translateX(-350px);
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes runway-lines {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-100%);
     }
 }
